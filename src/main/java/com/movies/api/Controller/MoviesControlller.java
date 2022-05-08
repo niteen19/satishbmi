@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 
@@ -17,8 +17,8 @@ public class MoviesControlller {
     private MoviesRepo moviesRepo;
 
     @GetMapping("/movies/{title}")
-    public Optional<Movies> getMovies(@PathVariable("title") String title) {
-        Optional<Movies> m = moviesRepo.findBytitle(title);
+    public java.util.Optional<Movies> getMovies(@PathVariable("title") String title) {
+        java.util.Optional<Movies> m = moviesRepo.findBytitle(title);
 //        while (it.iterator().hasNext()) {
 //          //  System.out.println(it.iterator().next().getTitle());
 //           // Movies m = it.iterator().next();
@@ -34,9 +34,10 @@ public class MoviesControlller {
     }
 
     @GetMapping("/movies/imdb/{imdb_id}")
-    public Optional<Movies> getMoviesByImdb_id(@PathVariable("imdb_id") String imdb_id) {
-        Optional<Movies> m = moviesRepo.findByimdb_id(imdb_id);
+    public java.util.Optional<Movies> getMoviesByImdb_id(@PathVariable("imdb_id") String imdb_id) {
+        java.util.Optional<Movies> m = moviesRepo.findByimdb_id(imdb_id);
         return m;
     }
+
 }
 
