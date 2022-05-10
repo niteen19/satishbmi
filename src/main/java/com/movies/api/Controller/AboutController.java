@@ -2,6 +2,7 @@ package com.movies.api.Controller;
 
 import com.movies.api.Model.About;
 import com.movies.api.Repository.AboutRepo;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -27,6 +28,10 @@ public class AboutController {
     public List<About> getactors(@PathVariable String actors) {
         return aboutRepo.findAboutByactors(actors);
 
+    }
+    @GetMapping("/movies/find")
+    public Optional<Document> getByactors(){
+        return aboutRepo.findActorsByMovie();
     }
 
 }
