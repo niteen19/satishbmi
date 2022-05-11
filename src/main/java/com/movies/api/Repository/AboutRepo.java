@@ -19,5 +19,8 @@ public interface AboutRepo extends MongoRepository<About, String> {
     @Query("aggregate([{$lookup:{ from:'movies',localField:'imdb_id',foreignField:'imdb_id',as:'post'}}])")
     Optional<Document> findActorsByMovie();
 
+    @Query("{'imdb_id':?0}")
+    Optional<About> findAboutByImdb_id(String str);
+
 
 }

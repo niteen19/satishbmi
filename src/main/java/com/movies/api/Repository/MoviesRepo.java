@@ -12,13 +12,9 @@ import java.util.Optional;
 
 @Repository
 public interface MoviesRepo extends MongoRepository<Movies, String> {
- @Autowired
-     public MongoTemplate mt = null;
-
     Optional<Movies> findBytitle(String title);
 
     @Query("{'imdb_id':?0}")
     Optional<Movies> findByimdb_id(String imdb_id);
-
 
 }
