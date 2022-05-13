@@ -49,8 +49,11 @@ public class MoviesControlller {
    @GetMapping("/movies/getGenre/{movie_name}")
     public  String getGenre(@PathVariable("movie_name") String movie_name){
        String str = moviesService.getImdb_Id(movie_name);
-       return metaRepo.findByImdb_Id(str).get().getGenres();
+       if(str != null){
+       return metaRepo.findByImdb_Id(str).get().getGenres();}
+       else return  "Wrong Input";
 
    }
 }
 
+ 
