@@ -11,11 +11,4 @@ import java.util.List;
 
 @RestController
 public class MetaController {
-    @Autowired
-    private MetaRepo metaRepo;
-
-    @GetMapping("/movies/meta")
-    public List<Meta> getData() {
-        return metaRepo.findAll();
-    }
 }
